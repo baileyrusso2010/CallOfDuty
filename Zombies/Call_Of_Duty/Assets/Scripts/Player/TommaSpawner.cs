@@ -8,12 +8,15 @@ public class TommaSpawner : MonoBehaviour {
 	public GameObject tomHawk;
 
 	//reference to the class
-	private ZombieSpawner zSpawner;
+	//private ZombieSpawner zSpawner;
 
+	//where it shoots out from
 	public Transform spawnPlacement;
 
+	//referene to player
 	GameObject player;
 
+	//gameObject that spawns tomHawk
 	GameObject spawnT;
 
 	void Start()
@@ -30,7 +33,7 @@ public class TommaSpawner : MonoBehaviour {
 		if (Input.GetKeyDown("joystick button 5") && spawnT == null) 
 		{
 
-			//spawns gameobject
+		//spawns gameobject
 		 spawnT = (GameObject)Instantiate (tomHawk, spawnPlacement.transform.position,
 				Quaternion.identity);	
 		}//end of if

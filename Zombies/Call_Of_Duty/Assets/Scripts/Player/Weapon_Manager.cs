@@ -22,6 +22,12 @@ public class Weapon_Manager : MonoBehaviour {
 
 		if (Input.GetKeyDown ("joystick button 3")) 
 		{
+			if (state == State.first)
+				state = State.second;
+			else if (state == State.second)
+				state = State.first;
+
+
 			SwitchWeapon ();
 		}
 
@@ -33,11 +39,13 @@ public class Weapon_Manager : MonoBehaviour {
 		{
 			firstWeapon.SetActive (false);
 			secondWeapon.SetActive (true);
+
 		}
 		else if (state == State.second && firstWeapon != null) 
 		{
 			firstWeapon.SetActive (true);
 			secondWeapon.SetActive (false);
+		
 		}
 
 	}//end of switch weapon

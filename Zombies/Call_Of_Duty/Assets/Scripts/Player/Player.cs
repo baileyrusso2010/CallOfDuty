@@ -21,6 +21,8 @@ public class Player : Movement {
 
 	bool jumping = false;
 
+	public int score = 0;
+
 	// Use this for initialization
 	void Start () {
 
@@ -61,7 +63,5 @@ public class Player : Movement {
 			transform.Translate (Vector3.up * 30 * Time.deltaTime);
 			jumping = false;
 		}
-
 	}
-
 }

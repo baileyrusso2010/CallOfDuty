@@ -16,6 +16,4 @@ public class Level_Manager : MonoBehaviour {
 	{
 		return level++;
 	}
-
-
 }

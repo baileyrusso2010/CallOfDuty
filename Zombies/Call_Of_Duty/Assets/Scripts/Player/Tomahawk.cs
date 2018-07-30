@@ -137,7 +137,6 @@ public class Tomahawk : MonoBehaviour {
 				//get the zombie
 				zombieHolder = zb;
 
-				//;
 				distance = dist;
 
 				//we got em

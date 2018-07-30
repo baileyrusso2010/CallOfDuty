@@ -21,7 +21,6 @@ public class ZombieSpawner : MonoBehaviour {
 	void Start () 
 	{
 
-
 		//instantiates list
 		zombieList = new List<Zombie> ();
 	
