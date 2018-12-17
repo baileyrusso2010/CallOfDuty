@@ -16,10 +16,14 @@ public class ZombieSpawner : MonoBehaviour {
 
 	private bool roundOver = true;
 
+    float spawnTime = 0, resetTime = 3f;
+
+    int counter = 0;
 
 	// Use this for initialization
 	void Start () 
 	{
+        spawnTime = resetTime;
 
 		//instantiates list
 		zombieList = new List<Zombie> ();
@@ -38,8 +42,18 @@ public class ZombieSpawner : MonoBehaviour {
 		//if the round is over
 		if(roundOver == true)
 		{
-			StartCoroutine (zombieSpawn());
-			roundOver = false;
+
+            spawnTime -= Time.deltaTime;
+
+            if (spawnTime <= 0f)
+            {
+                SpawnZombie();
+                counter++;
+                spawnTime = resetTime;
+            }
+
+            if(counter > 5)
+    			roundOver = false;
 		}
 
 	}
@@ -54,20 +68,7 @@ public class ZombieSpawner : MonoBehaviour {
 
 		//spawns the zombie
 		GameObject zombieSpawned = Instantiate (zombieModel, positionsToSpawn[randomN].transform.position, Quaternion.identity);
-		//zombieList.Add (zombieSpawned);
+		
 
 	}
-
-	IEnumerator zombieSpawn()
-	{
-		yield return new WaitForSeconds (2);
-
-		//numZombiesSpawn *= Level_Manager.level;
-		for(int i = 0; i < 3;i++)
-		{
-			SpawnZombie ();
-		} 
-
-	}
-
 }

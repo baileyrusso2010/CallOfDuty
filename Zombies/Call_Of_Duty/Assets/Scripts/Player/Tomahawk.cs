@@ -125,23 +125,26 @@ public class Tomahawk : MonoBehaviour {
 	{
 		foreach(Zombie zb in zombieList)
 		{
-			Zombie zombieHolder;
-			Vector3 dist = zb.transform.position - this.transform.position;
+            if (zb != null)
+            {
+                Zombie zombieHolder;
+                Vector3 dist = zb.transform.position - this.transform.position;
 
-			//if it's in range and hasn't been visited proceed
-			if (dist.sqrMagnitude < 35 && zb.isVisited == false) 
-			{
-				//we have now visited that zombie
-				zb.isVisited = true;
+                //if it's in range and hasn't been visited proceed
+                if (dist.sqrMagnitude < 35 && zb.isVisited == false)
+                {
+                    //we have now visited that zombie
+                    zb.isVisited = true;
 
-				//get the zombie
-				zombieHolder = zb;
+                    //get the zombie
+                    zombieHolder = zb;
 
-				distance = dist;
+                    distance = dist;
 
-				//we got em
-				return zombieHolder;
-			}
+                    //we got em
+                    return zombieHolder;
+                }
+            }
 
 		}//end of foreach
 
